@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr  2 07:02:53 2020
+<<<<<<< HEAD
 ​
+=======
+
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 @author: minyoungpark
 """
 import os
@@ -51,7 +55,11 @@ def butter_lowpass_filter(data):
     n = len(data)  # total number of samples
     fs = 30       # sample rate, Hz
     T = n/fs         # Sample Period
+<<<<<<< HEAD
     cutoff = 8      # desired cutoff frequency of the filter
+=======
+    cutoff = 7      # desired cutoff frequency of the filter
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     nyq = 0.5 * fs  # Nyquist Frequency
     order = 4       # sin wave can be approx represented as quadratic
 
@@ -66,6 +74,10 @@ def butter_lowpass_filter(data):
               'a': a}
     return output
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 def filt_3d(interp_type, filt_type, nan_win, xyz):
     def nan_helper(y):
         return np.isnan(y), lambda z: z.nonzero()[0]
@@ -123,7 +135,11 @@ def filt_3d(interp_type, filt_type, nan_win, xyz):
             if filt_type == 'savgol' and len(y) > 11:
                 sg_xyz = savgol_filter(np.stack([x, y, z]), 7, 5)
                 xyz[group] = sg_xyz.T
+<<<<<<< HEAD
             elif filt_type == 'lpf' and len(y) > 18:
+=======
+            elif filt_type == 'lpf' and len(y) > 16:
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
                 lpf_x = butter_lowpass_filter(x)
                 lpf_y = butter_lowpass_filter(y)
                 lpf_z = butter_lowpass_filter(z)
@@ -132,6 +148,10 @@ def filt_3d(interp_type, filt_type, nan_win, xyz):
                 xyz_filt[group, 2] = lpf_z['y']                
         return xyz_filt
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 def filter_3d(config, joints, fingers, interp_type, filt_type):
     path = config['triangulation']['reconstruction_output_path']
     df = pd.read_csv(os.path.join(path,'output_3d_data_out2.csv'))
@@ -142,11 +162,19 @@ def filter_3d(config, joints, fingers, interp_type, filt_type):
         y = df[joint+'_y'].copy()
         z = df[joint+'_z'].copy()
         coords = np.stack([x,y,z]).T
+<<<<<<< HEAD
         xyz_filt = filt_3d('linear', filt_type, 4, coords)
         df_filt[joint+'_x'] = xyz_filt[:, 0]
         df_filt[joint+'_y'] = xyz_filt[:, 1]
         df_filt[joint+'_z'] = xyz_filt[:, 2]
         
+=======
+        xyz_filt = filt_3d('linear', filt_type, 2, coords)
+        df_filt[joint+'_x'] = xyz_filt[:, 0]
+        df_filt[joint+'_y'] = xyz_filt[:, 1]
+        df_filt[joint+'_z'] = xyz_filt[:, 2]
+
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     dist_meds = []
     for i, finger in enumerate(fingers):
         finger_meds = []

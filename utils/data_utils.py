@@ -220,3 +220,7 @@ def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_sav
         
         df_interp[df_interp==0] = np.nan
         df_interp.to_csv(path_to_save, mode='w')
+<<<<<<< HEAD
+=======
+
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515

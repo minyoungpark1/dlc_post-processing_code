@@ -460,7 +460,11 @@ def generate_three_dim_video(config, **kwargs):
         reconstruction_output_path = config['triangulation']['reconstruction_output_path']
 
     # reconstruction_filename = 'output_3d_data_trimmed.csv'
+<<<<<<< HEAD
     reconstruction_filename = 'trimmed.csv'
+=======
+    reconstruction_filename = 'output_3d_data_lpf_cut.csv'
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     # reconstruction_filename = 'transverse.csv'
 
     data = pd.read_csv(os.path.join(reconstruction_output_path, reconstruction_filename))
@@ -509,6 +513,7 @@ def generate_three_dim_video(config, **kwargs):
     # ax.view_init(azim=-15, elev=-160)
     # ax.view_init(azim=-30, elev=-115)
     # ax.view_init(azim=-25, elev=-90)
+<<<<<<< HEAD
     ax.view_init(azim=-6, elev=-148)
 
 
@@ -519,6 +524,21 @@ def generate_three_dim_video(config, **kwargs):
         ax.set_xlabel('x (mm)')
         ax.set_ylabel('y (mm)')
         ax.set_zlabel('z (mm)')
+=======
+    ax.view_init(azim=-90, elev=120)
+
+    margin = 25
+    def draw_lines(points):
+        ax.set_xlim([x_low-margin, x_high+margin])
+        ax.set_ylim([y_low-margin, y_high+margin])
+        ax.set_zlim([z_low-margin, z_high+margin])
+        # ax.set_xlabel('x (mm)')
+        # ax.set_ylabel('y (mm)')
+        # ax.set_zlabel('z (mm)')
+        ax.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+        ax.tick_params(axis='y', which='both', bottom=False, top=False, labelbottom=False)
+        ax.tick_params(axis='z', which='both', bottom=False, top=False, labelbottom=False)
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
         ax.scatter(points[:, 0], points[:, 1], points[:, 2], 'bo', alpha=0.5)
         for connection in connections:
             xs = [points[bp_dict[connection[0]]][0], points[bp_dict[connection[1]]][0]]
@@ -526,15 +546,25 @@ def generate_three_dim_video(config, **kwargs):
             zs = [points[bp_dict[connection[0]]][2], points[bp_dict[connection[1]]][2]]
             ax.plot(xs, ys, zs, 'g-')
 
+<<<<<<< HEAD
     # points = all_points[0]
     # draw_lines(points)
 
     # print('ax.azim {}'.format(ax.azim))
     # print('ax.elev {}'.format(ax.elev))
+=======
+    points = all_points[826]
+    draw_lines(points)
+    # ax.set_axis_off()
+
+    print('ax.azim {}'.format(ax.azim))
+    print('ax.elev {}'.format(ax.elev))
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 
     # # For testing
     # all_points = all_points[:50]
 
+<<<<<<< HEAD
     canvas = FigureCanvas(fig)
 
     for i in trange(len(all_points), ncols=70):
@@ -548,3 +578,18 @@ def generate_three_dim_video(config, **kwargs):
 
     plt.close()
     writer.release()
+=======
+    # canvas = FigureCanvas(fig)
+
+    # for i in trange(len(all_points), ncols=70):
+    #     ax.cla()
+    #     points = all_points[i]
+    #     draw_lines(points)
+    #     canvas.draw()
+    #     img = np.array(canvas.renderer._renderer)
+    #     img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    #     writer.write(img)
+
+    # plt.close()
+    # writer.release()
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515

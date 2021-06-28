@@ -13,12 +13,18 @@ from tqdm import trange
 from numpy import array as arr
 
 
+<<<<<<< HEAD
 def read_single_2d_data(data_path, offset, bp_interested, model_type):
     # data = pd.read_csv(data_path, header=[1,2], index_col=0)
     if model_type is 'dlc':
         data = pd.read_csv(data_path, header=[2,3], index_col=0)
     elif model_type is 'hrnet':
         data = pd.read_csv(data_path, header=[0,1], index_col=0)
+=======
+def read_single_2d_data(data_path, offset, bp_interested):
+    # data = pd.read_csv(data_path, header=[1,2], index_col=0)
+    data = pd.read_csv(data_path, header=[2,3], index_col=0)
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     # data = pd.read_csv(data_path, header=[2,3])
     length = len(data.index)
     index = arr(data.index)
@@ -50,7 +56,11 @@ def load_offsets_dict(config, vid_indices):
     return offsets_dict
 
 
+<<<<<<< HEAD
 def load_2d_data(config, vid_indices, bp_interested, model_type):
+=======
+def load_2d_data(config, vid_indices, bp_interested):
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     paths_to_2d_data = config['paths_to_2d_data']
     
     offsets_dict = load_offsets_dict(config, vid_indices)
@@ -65,7 +75,11 @@ def load_2d_data(config, vid_indices, bp_interested, model_type):
     
     for ix_cam, (vid_idx, data_path) in \
             enumerate(zip(vid_indices, paths_to_2d_data)):
+<<<<<<< HEAD
         out = read_single_2d_data(data_path, offsets_dict[vid_idx], bp_interested, model_type)
+=======
+        out = read_single_2d_data(data_path, offsets_dict[vid_idx], bp_interested)
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
         all_points_raw.append(out['coords'])
         all_scores.append(out['scores'])
         

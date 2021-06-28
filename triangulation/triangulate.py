@@ -536,7 +536,11 @@ def reconstruct_3d(config, **kwargs):
         return None
 
 
+<<<<<<< HEAD
 def reconstruct_3d_ransac(config, min_cams=2, model_type='dlc', **kwargs):
+=======
+def reconstruct_3d_ransac(config, min_cams=2, **kwargs):
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     path, videos, vid_indices = get_video_path(config)
     bp_interested = config['labeling']['bodyparts_interested']
     reconstruction_threshold = config['triangulation']['reconstruction_threshold']
@@ -572,7 +576,11 @@ def reconstruct_3d_ransac(config, min_cams=2, model_type='dlc', **kwargs):
     cam_mats_dist = arr(cam_mats_dist)
 
     # (fnum, n, j, 2)
+<<<<<<< HEAD
     out = load_2d_data(config, vid_indices, bp_interested, model_type)
+=======
+    out = load_2d_data(config, vid_indices, bp_interested)
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
     
     
     all_points_raw = out['points']

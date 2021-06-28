@@ -95,7 +95,11 @@ def reconstruct_checkerboard(row, camera_mats, camera_mats_dist):
 
 def detect_aruco(gray, intrinsics, board):
     board_type = get_board_type(board)
+<<<<<<< HEAD
 #     gray = cv2.GaussianBlur(gray, (5, 5), 0)
+=======
+    gray = cv2.GaussianBlur(gray, (5, 5), 0)
+>>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 
     params = cv2.aruco.DetectorParameters_create()
     params.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_CONTOUR
