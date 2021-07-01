@@ -19,7 +19,6 @@ def read_single_2d_data(data_path, offset, bp_interested, model_type):
         data = pd.read_csv(data_path, header=[2,3], index_col=0)
     elif model_type is 'hrnet':
         data = pd.read_csv(data_path, header=[0,1], index_col=0)
-    # data = pd.read_csv(data_path, header=[2,3])
     length = len(data.index)
     index = arr(data.index)
     

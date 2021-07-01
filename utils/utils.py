@@ -49,5 +49,3 @@ def load_config(config_filename):
                     config[k][k2] = v2
 
     return config
-
-# def convertPickleToCSV()

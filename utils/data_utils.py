@@ -7,7 +7,7 @@ Created on Thu Feb 18 02:20:07 2021
 import os
 import pandas as pd
 import numpy as np
-from tqdm import trange
+from tqdm import trange, tqdm
 
 
 def convertPickleToCSV(postfix, joints, pickle_paths, paths_to_save):
@@ -164,7 +164,7 @@ def interpDroppedData(postfix, joints, csv_paths, timestamp_paths, paths_to_save
         df_interp[df_interp==0] = np.nan
         df_interp.to_csv(path_to_save, mode='w')
         
-def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_save):
+def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_save, model_type='dlc'):
     for path_to_save in paths_to_save:
         if not os.path.exists(os.path.dirname(path_to_save)):
             print(os.path.dirname(path_to_save) + ' does not exsit.')
@@ -185,7 +185,11 @@ def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_sav
     dfs = []
     
     for csv_path, timestamp_path in zip(csv_paths, timestamp_paths):
-        df = pd.read_csv(csv_path, header=[2,3], index_col=0)
+        if model_type is 'dlc':
+            df = pd.read_csv(csv_path, header=[2,3], index_col=0)
+        elif model_type is 'hrnet':
+            df = pd.read_csv(csv_path, header=[0,1], index_col=0)
+            
         timestamp = np.loadtxt(timestamp_path)
         timestamp_diff = np.round(timestamp[1] - timestamp[0])
         
@@ -206,7 +210,7 @@ def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_sav
         index = np.arange(L)
         df_interp = pd.DataFrame(np.zeros((L, len(joints)*3)), index=index, columns=header)
         t = np.arange(0, L)
-        for i, joint in enumerate(joints):
+        for i, joint in enumerate(tqdm(joints)):
             x = np.array(df.iloc[:, 3*i])
             y = np.array(df.iloc[:, 3*i+1])
             err = np.array(df.iloc[:, 3*i+2])
@@ -220,7 +224,3 @@ def interpDroppedData2(postfix, joints, csv_paths, timestamp_paths, paths_to_sav
         
         df_interp[df_interp==0] = np.nan
         df_interp.to_csv(path_to_save, mode='w')
-<<<<<<< HEAD
-=======
-
->>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515

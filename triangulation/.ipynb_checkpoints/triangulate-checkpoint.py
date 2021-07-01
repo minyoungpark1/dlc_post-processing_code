@@ -574,7 +574,6 @@ def reconstruct_3d_ransac(config, min_cams=2, model_type='dlc', **kwargs):
     # (fnum, n, j, 2)
     out = load_2d_data(config, vid_indices, bp_interested, model_type)
     
-    
     all_points_raw = out['points']
     all_scores = out['scores']
 

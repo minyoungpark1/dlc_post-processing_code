@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 paths_to_2d_data = ['/home/myp7435/downsampled_videos/1217/experiment/cam_0_trimmed_output.csv',
 '/home/myp7435/downsampled_videos/1217/experiment/cam_1_trimmed_output.csv',
 '/home/myp7435/downsampled_videos/1217/experiment/cam_2_trimmed_output.csv',
@@ -14,18 +13,6 @@ output_video_path = '/home/myp7435/downsampled_videos/1217/experiment'
 [video]
 fps = 30
 resolution = [512, 384]
-=======
-paths_to_2d_data = ['/Volumes/T7 Touch/pop_0811_1/iteration-19/cam_0_interp.csv',
-'/Volumes/T7 Touch/pop_0811_1/iteration-19/cam_1_interp.csv',
-'/Volumes/T7 Touch/pop_0811_1/iteration-19/cam_2_interp.csv',
-'/Volumes/T7 Touch/pop_0811_1/iteration-19/cam_3_interp.csv']
-
-output_video_path = '/Volumes/T7 Touch/pop_0811_1/iteration-19'
-
-[video]
-fps = 30
-resolution = [2048, 1536]
->>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 
 [calibration]
 # checkerboard / charuco / aruco
@@ -49,25 +36,15 @@ board_marker_length = 23.2 # mm
 # If charuco or checkerboard, square side length
 board_square_side_length = 38.6 # mm
 
-<<<<<<< HEAD
 calib_video_path = '/home/myp7435/downsampled_videos/1217/calib'
 calib_video_prefix = 'cam'
 video_extension = 'mp4'
-=======
-calib_video_path = '/Volumes/T7 Touch/calib_0811'
-calib_video_prefix = 'cam'
-video_extension = 'avi'
->>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 
 
 [triangulation]
 cam_align = "0"
 reconstruction_threshold = 0.3
-<<<<<<< HEAD
 reconstruction_output_path = '/home/myp7435/downsampled_videos/1217/experiment'
-=======
-reconstruction_output_path = '/Volumes/T7 Touch/pop_0811_1/iteration-19'
->>>>>>> f86fa74cc15f1d374d7857ccff3d57f3ee6ba515
 
 
 [labeling]
@@ -96,3 +73,24 @@ scheme = [
 bodyparts_interested = ['Wrist', 'CMC_thumb', 'MCP_thumb', 'MCP1', 'MCP2', 'MCP3', 'MCP4',
           'IP_thumb', 'PIP1', 'PIP2', 'PIP3', 'PIP4', 'Dip1', 'Dip2', 'Dip3', 'Dip4',
           'Tip_thumb', 'Tip1', 'Tip2', 'Tip3', 'Tip4']
+
+dist_measured = [23.26,
+ 22.56,
+ 17.72,
+ 10.53,
+ 35.63,
+ 35.35,
+ 36.32,
+ 36.89,
+ 25.19,
+ 30.00,
+ 28.53,
+ 24.44,
+ 13.58,
+ 18.19,
+ 20.16,
+ 14.78,
+ 11.55,
+ 12.98,
+ 14.15,
+ 10.57]
